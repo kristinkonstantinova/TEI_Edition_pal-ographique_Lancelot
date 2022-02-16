@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ENTITY et "<choice><abbr>&#x204A;</abbr><expan>et</expan></choice>">
+<!ENTITY chlr "<choice><abbr>chlr&#x303;</abbr><expan>ch<ex>eva</ex>l<ex>ie</ex>r</expan></choice>">
+<!ENTITY que "<choice><abbr>q&#x303;</abbr><expan>q<ex>ue</ex></expan></choice>">
+<!ENTITY bien "<choice><abbr>bn&#x303;</abbr><expan>b<ex>ie</ex>n</expan></choice>">
+<!ENTITY mlt "<choice><abbr>mlt</abbr><expan>m<ex>o</ex>lt</expan></choice>">
+<!ENTITY par "<choice><abbr>&#xa751;</abbr><expan>par</expan></choice>" >
+<!ENTITY uotre "<choice><abbr>ur&#x303;e</abbr><expan>u<ex>ot</ex>re</expan></choice>">
+
+<!ENTITY ra "<choice><abbr>&#303;</abbr><expan>ra</expan></choice>" >
+<!ENTITY omme "<choice><abbr>c&#303;</abbr><expan>omme</expan></choice>" >
+<!ENTITY m "<choice><abbr>&#303;</abbr><expan>m</expan></choice>" >
+<!ENTITY us "<choice><abbr>&#x2079;</abbr><expan>us</expan></choice>">
+<!ENTITY n "<choice><abbr>&#303;</abbr><expan>n</expan></choice>" >
+<!ENTITY en "<choice><abbr>&#303;</abbr><expan>en</expan></choice>" >
+<!ENTITY er "<choice><abbr>&#303;</abbr><expan>er</expan></choice>" >
+<!ENTITY an "<choice><abbr>&#303;</abbr><expan>an</expan></choice>" >
+<!ENTITY au "<choice><abbr>&#303;</abbr><expan>au</expan></choice>" >
+<!ENTITY ri "<choice><abbr>&#303;</abbr><expan>ri</expan></choice>" >
+<!ENTITY ro "<choice><abbr>&#303;</abbr><expan>ro</expan></choice>" >
+<!ENTITY ot "<choice><abbr>&#303;</abbr><expan>ot</expan></choice>" >
+
+<!ENTITY h "<choice><abbr>h</abbr><expan>h<ex>ector</ex></expan></choice>">
+
+<!ENTITY tilde "&#x303;"> 
