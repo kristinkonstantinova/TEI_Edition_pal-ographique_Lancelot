@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:s="http://purl.oclc.org/dsdl/schematron" xml:lang="fr">
+   
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -171,6 +172,9 @@
                <div3>
                   <head>Description du corps de l'encodage : le <gi>body</gi></head>
                   <!-- décrire la structure du document : éléments... -->
+               </div3>
+               <div3>
+                  <head>Description des entités utilisées pour les caractères spéciaux : la DTD</head>
                </div3>
             </div2>
          </div1>
@@ -391,6 +395,15 @@
                   </attList>
                </elementSpec>
                <elementSpec ident="persName" mode="change">
+                  <constraintSpec scheme="schematron" ident="persNameRef">
+                     <constraint>
+                        <s:rule context="tei:persName[@ref and ancestor::tei:body]">
+                           <s:let name="ref" value="@ref"/>
+                           <s:assert test="//tei:person[@xml:id = substring-after($ref, '#')] and starts-with($ref, '#')">
+                              la valeur @ref n'a pas été déclaré</s:assert>
+                        </s:rule>
+                     </constraint>
+                  </constraintSpec>
                   <attList>
                      <attDef ident="facs" mode="delete"/>
                      <attDef ident="full" mode="change">
@@ -402,6 +415,15 @@
                   </attList>
                </elementSpec>
                <elementSpec ident="placeName" mode="change">
+                  <constraintSpec scheme="schematron" ident="placeNameRef">
+                     <constraint>
+                        <s:rule context="tei:placeName[@ref and ancestor::tei:body]">
+                           <s:let name="ref" value="@ref"/>
+                           <s:assert test="//tei:place[@xml:id = substring-after($ref, '#')] and starts-with($ref, '#')">
+                              la valeur @ref du &lt;placeName&gt; n'a pas été déclarée</s:assert>
+                        </s:rule>
+                     </constraint>
+                  </constraintSpec>
                   <attList>
                      <attDef ident="facs" mode="delete"/>
                      <attDef ident="full" mode="change">
@@ -798,17 +820,31 @@
                      <attDef ident="type" mode="delete"/>
                   </attList>
                </elementSpec>
+               
                <elementSpec ident="lb" mode="change">
+                  <!-- règle contraignant la succession de deux éléments -->
+                  <constraintSpec scheme="schematron" ident="lbToL" mode="add">
+                     <constraint>
+                        <s:rule context="tei:TEI//tei:body//tei:*[./tei:lb]">
+                           <s:assert test="./tei:lb/following-sibling::tei:l">
+                              Un élément &lt;lb&gt; doit être suivi d'un &lt;l&gt;
+                           </s:assert>
+                        </s:rule>
+                     </constraint>
+                  </constraintSpec>
+                  <constraintSpec ident="lignesAttN" scheme="schematron">
+                     <!-- La valeur de @n doit être incrémentée de 1 à chaque nouvelle ligne -->
+                     <constraint>
+                        <s:rule context="tei:l[@n and ancestor::tei:lg]">
+                           <s:assert test="number(@n) = number(preceding-sibling::tei:l[1]/@n) + 1 or count(preceding-sibling::tei:l[1]/@n) = 0">
+                              La valeur de @n est erronée</s:assert>
+                        </s:rule>
+                     </constraint>
+                  </constraintSpec>
                   <attList>
                      <attDef ident="facs" mode="delete"/>
                      <attDef ident="type" mode="delete"/>
                   </attList>
-                  <constraintSpec scheme="schematron" ident="lbToL" mode="add">
-                     <constraint>
-                        <s:rule context="tei:TEI//tei:body//tei:lb">
-                           <s:assert test=
-                        </s:rule>
-                  </constraintSpec>
                </elementSpec>
                <elementSpec ident="cb" mode="change">
                   <attList>
@@ -911,6 +947,18 @@
                   </attList>
                </elementSpec>
                <elementSpec ident="l" mode="change">
+                  <constraintSpec scheme="schematron" ident="lAttValues" mode="add">
+                     <!-- règle contraignant la présence d'attributs et leurs valeurs -->
+                     <constraint>
+                        <s:rule context="tei:TEI//tei:l">
+                           <s:assert test="matches(@n, '[0-9]{1,3}') and matches(@facs, '#l[0-9]{1,4}')">
+                              Un élément &lt;l&gt; doit contenir un attribut @n ayant pour valeur un nombre
+                              contenant entre 1 et 3 chiffres ainsi qu'un attribut @facs ayant pour valeur '#l'
+                              suivi d'un nombre entre 1 et 4 chiffres.
+                           </s:assert>
+                        </s:rule>
+                     </constraint>
+                  </constraintSpec>
                   <attList>
                      <attDef ident="part" mode="change">
                         <valList mode="add" type="closed">
