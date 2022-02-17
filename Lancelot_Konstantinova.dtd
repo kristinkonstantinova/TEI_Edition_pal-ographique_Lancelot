@@ -5,8 +5,6 @@
 <!ENTITY que "<choice><abbr>q&#x303;</abbr><expan>q<ex>ue</ex></expan></choice>">
 <!ENTITY bien "<choice><abbr>bn&#x303;</abbr><expan>b<ex>ie</ex>n</expan></choice>">
 <!ENTITY mlt "<choice><abbr>mlt</abbr><expan>m<ex>o</ex>lt</expan></choice>">
-<!ENTITY par "<choice><abbr>&#xa751;</abbr><expan>par</expan></choice>" >
-<!ENTITY uotre "<choice><abbr>ur&#x303;e</abbr><expan>u<ex>ot</ex>re</expan></choice>">
 
 <!ENTITY ra "<choice><abbr>&#303;</abbr><expan>ra</expan></choice>" >
 <!ENTITY omme "<choice><abbr>c&#303;</abbr><expan>omme</expan></choice>" >
