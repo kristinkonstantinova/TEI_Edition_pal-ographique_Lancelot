@@ -38,7 +38,12 @@
                physique et esthétique ce qui a joué sur les choix d'éléments et d'attributs spécifiques, 
                expliqués ci-dessous.
             </p>
-            
+            <p>La documentation de cet ODD est fortement inspirée des exemples de cours donnés par Mme Ségolène-Albouy 
+               à L'Ecole des Chartes. Ils sont consultables à l'adresse suivante :
+               <ref target="https://github.com/Segolene-Albouy/XML-TEI_M2TNAH/tree/main/11-Personnalisation_ODD/Exemples/Edition_paleographique">
+               </ref>.
+            </p>
+               
             <div2>
                <head>Structure du fichier XML</head>
                <p>Le document XML est contenu dans un élément racine <gi>TEI</gi>, lui-même divisé en trois parties: 
@@ -49,12 +54,12 @@
                   Il contient des éléments <gi>editionStmt</gi> et <gi>publicationStmt</gi> où on trouve des informations 
                   sur les personnes et les institutions responsables du projet. L'élément <gi>sourceDesc</gi> sert à décrire 
                   le lieu de conservation, l'aspect matériel du manuscrit, son écriture et l'ornement, la mise en page et 
-                  la bibliographie. L'élément <gi>profileDesc</gi> offre une liste des personnages et des lieux etmentionnés dans le texte.</p>
+                  la bibliographie. L'élément <gi>profileDesc</gi> offre une liste des personnages et des lieux mentionnés dans le texte.</p>
                <p>L'élément <gi>facsimile</gi> contient toutes les données concernant les images et leur visualisation. 
                   Ces informations sont contenues dans des balises <gi>surface</gi> qui référencent le chemin d'accès à l'image, de même 
                   que les coordonées des zones correspondantes chacune à une ligne du texte particulière.</p>
                <p>Enfin, l'élément <gi>text</gi> contient la transcription du manuscrit. La transcription elle même 
-                  se trouve dans <gi>body</gi> qui à son tour est est associé à l'attribut <att>type</att> de valeur <val>edition</val>.
+                  se trouve dans <gi>body</gi> qui à son tour est associé à l'attribut <att>type</att>.
                   L'élément <gi>pb</gi> au début de chaque folio donne le chemin vers l'image. Il est suivi de l'élément <gi>cb</gi> 
                   qui marque le début de la nouvelle colonne. Un attribut <att>n</att> permet de compter le nombre de colonnes.
                   L'élément <gi>lg</gi> indique un regroupement de lignes. L'élément <gi>lb</gi> indique un nouveau début de ligne pour 
@@ -62,7 +67,8 @@
                
                <div3>
                   <head>Structure du <hi rend="italic">teiHeader</hi></head>
-                  <p>Le <gi>teiHeader</gi> comporte deux grandes sections : <specList>
+                  <p>Le <gi>teiHeader</gi> comporte deux grandes sections : 
+                     <specList>
                      <specDesc key="fileDesc"/>
                      <specDesc key="profileDesc"/>
                   </specList> 
@@ -98,11 +104,11 @@
                      <div5>
                         <head>Le <hi rend="italic">sourceDesc</hi></head>
                         <p>Le <gi>sourceDesc</gi> décrit la source de laquelle est issue l'encodage, en l'occurence le manuscrit 16999 
-                           de la Bibliothèque Nationale de France et sa <ref target="https://gallica.bnf.fr/ark:/12148/btv1b6000418r/f218"
-                              >numérisation</ref>.</p>
+                           de la Bibliothèque Nationale de France et sa <ref target="https://gallica.bnf.fr/ark:/12148/btv1b6000418r/f218">numérisation</ref>.
+                        </p>    
                         <p>L'élément <gi>msIdentifier</gi> renseigne le pays et la ville dans lequel est conservé le 
                            manuscrit, ainsi que l'institution en charge de la conservation (<gi>institution</gi>)
-                           et le département en question (<gi>repository</gi>). La balise <gi>idno</gi>Viennent ensuite dans un ou plusieurs éléments
+                           et le département en question (<gi>repository</gi>).
                            <gi>altIdentifier</gi> donne les informations complémentaires sur l'historique d'identification du manuscrit et son lien ark.</p>
                         <egXML xmlns="http://www.tei-c.org/ns/Examples">
                            <altIdentifier>
@@ -119,66 +125,103 @@
                            L'élément <gi>msItem</gi> renseigne deux choses: l'<gi>incipit</gi> et l'<gi>explicit</gi> qui correspondent à un début 
                            et fin de la section respectivement. L'élément <gi>filiation</gi> renseigne sur l'insertion du manuscrit dans une série 
                            d'un plus grand nombre de manuscrits, celle des <hi rend="italic">Lancelot du Lac</hi>. 
-                           Enfin, sont données également les informations sur l'enlumineur présumé responsable des lettrines et enluminures du manuscrit. </p>
-                        
+                           Enfin, sont données également les informations sur l'enlumineur présumé responsable des lettrines et enluminures du manuscrit. 
+                        </p>
                         <p>L'élément <gi>physDesc</gi> donne des renseignements sur l'aspect et la condition materielle du document source : la description des 
                            matériaux et les dimensions de l'objet (<gi>objectDesc</gi>), la matière utilisée (<gi>support</gi>) et ses dimensions (<gi>extent</gi>).
                            <gi>layoutDesc</gi> détaille ensuite la  disposition du  texte sur le folio en indiquant le nombre de colonne par page et 
-                           le nombre de lignes dans chaque colonne.</p>
-                        <p>L'élément <gi>handDesc</gi> donne les informations sur les mains qui interviennent dans le manuscrit.
-                           Enfin suit l'element <gi>decoDesc</gi> qui sert à la description détaillée des lettrines, des marges et des miniatures. 
+                           le nombre de lignes dans chaque colonne.
                         </p>
-                        <p> Pour terminer avec le <gi>sourceDesc</gi> on trouve l'élément <gi>history</gi> qui regroupe les informations de provenance
-                           géographique (<gi>origin</gi>) ainsi qu'une bibliographie des ouvrages
-                           mentionnant le manuscrit 16999 (<gi>listBibl</gi>). </p>
+                        <p>L'élément <gi>handDesc</gi> donne les informations sur les mains qui interviennent dans le manuscrit.
+                           Puis suit l'element <gi>decoDesc</gi> qui sert à la description détaillée des lettrines, des marges et des miniatures. 
+                        </p>
+                        <p>Enfin, l'élément <gi>history</gi> regroupe les informations de provenance géographique (<gi>origin</gi>) ainsi qu'une 
+                           bibliographie des ouvrages mentionnant le manuscrit 16999 (<gi>listBibl</gi>). Au sein de la  bibliographie, 
+                           les titres (<gi>title</gi>) sont obligatoirement associé à un attribut <gi>level</gi> avec une valeur soit :
+                           <list>
+                              <item><val>a</val> pour article, c'est-à-dire pour une unité cohérente
+                                 et autonome de texte au sein d'un ouvrage ;</item>
+                              <item><val>m</val> pour monographie, c'est-à-dire pour le volume dans
+                                 son intégralité ;</item></list>
+                        </p>   
                      </div5>
                   </div4>
                   
                   <div4>
                      <head>Le <hi rend="italic">profileDesc</hi></head>
-                     <p>Le <gi>profileDesc</gi> contient la notice de référence des personnages présents dans l'édition. Chaque personnage
-                        est identifiable via la valeur de son <att>xml:id</att> afin de pointer leur apparition dans le texte. Une <gi>note</gi>
-                        peut aussi accompagner le personnage afin de décrire en quelques mots sa situation.</p>
+                     <p>Le <gi>profileDesc</gi> contient les notices de tous les noms de personnages et des lieux apparaissant dans la transcription.
+                        La <gi>listPerson</gi> contient le répertoire de tous les personnages du texte à l'intérieur d'une balise <gi>person</gi> 
+                        associé à un <att>xml:id</att> : l'élément <gi>personName</gi> permet d'en indiquer le nom et <gi>note</gi>
+                        apporte des précisions à son sujet. </p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        <profileDesc>
-                           <particDesc>
-                              <listPerson>
                                  <person xml:id="Artus">
                                     <persName>Le roi Arthur</persName>
                                     <note>Roi de Bretagne</note>
                                  </person>
-                              </listPerson>
-                           </particDesc>
-                        </profileDesc>
                      </egXML>
-                     
-                     <p>La <gi>listPlace</gi> contient le répertoire de chacun les lieux du texte à
-                        l'intérieur d'une balise <gi>place</gi> associé à un <att>xml:id</att> :
-                        l'élément <gi>placeName</gi> permet d'en indiquer le nom et <gi>note</gi>
-                        apporte des précisions à son sujet et donne l'environnement textuel dans
-                        lequel il aparait.</p>
+                      <p>La <gi>listPlace</gi> possède la même fonction mais concerne les lieux 
+                           cités dans le texte : <gi>place</gi> permet d'encadrer toutes les
+                           informations concernant un endroit : <gi>placeName</gi> en donne le nom et
+                           <gi>note</gi> donne les informations complémentaires.
+                        </p>
                      <egXML xmlns="http://www.tei-c.org/ns/Examples">
-                        <place xml:id="Athenes">
-                           <placeName>Athènes</placeName>
-                           <note>Lieu de naissance de Saint Sixte.</note>
-                           <note>"seins Sixtes qi estoit néz d'Athenes"</note>
+                        <place xml:id="RoyaumedeLogres">
+                           <placeName>Royaume de Logres</placeName>
+                           <note>royaume du roi Arthur, correspond au sud-est de l'Angleterre</note>
                         </place>
                      </egXML>
-                  </div4>
+                  </div4> 
+               </div3>
+               
+               <div3>
+                  <head>Les éléments au sein du <gi>facsimile</gi></head>
+                  <p>L'élément <gi>surface</gi> au sein du <gi>facsimile</gi> regroupe toutes les <gi>zones</gi> et <gi>graphic</gi>pour une page.
+                     L'attribut <att>type</att> permet de donner en valeur le numéro de page.
+                     L'élément <gi>graphic</gi> fait le lien vers l'image numérisée du manuscrit avec ses attributs:</p>
+                  <list>
+                     <item><att>url</att> qui fait le lien vers l'image</item>
+                     <item><att>width</att> on donne la largeur de l'image en pixels comme valeur de cet attribut</item>
+                     <item><att>height</att> on donne la hauteur de l'image en pixels comme valeur de cet attribut</item>
+                  </list></div3>
+               
+               <div3>
+               <head>Zonage de l'image</head>
+                  <p>L'élément <gi>zone</gi> fait le lien avec une zone de l'image. Ainsi, chaque zone correspond à une ligne.
+                     Les attributs <att>ulx</att>, <att>uly</att>, <att>lrx</att> et <att>lry</att> correspondent chacun 
+                     aux abscisses et ordonnées d'un rectangle, ce qui correspond aux besoins d'une délimitation par ligne 
+                     comme dans  notre cas.</p>
+                   
                </div3>
                <div3>
-                  <head>Mise en lien de l'encodage et du manuscrit numérisé : le <gi>facsimile</gi></head>
+                  <head>Structure du texte</head>
+                  <p>L'élément <gi>pb</gi> marque le début d'une nouvelle page. L'attribut <att>facs</att> renvoie vers l'URL 
+                     de la numérisation, tandis que l'attribut <att>n</att> permet de compter le nombre de pages.</p>
+                  <p>L'élément <gi>cb</gi> marque le début d'une nouvelle colonne. 
+                     Son attribut <att>n</att> permet de compter le nombre de colonnes.</p>
+                  <p>L'élément <gi>lg</gi>indique un regroupement de lignes.
+                     Il prend un attribut <att>n</att> pour compter le nombre de groupes de lignes, comme pour des paragraphes.</p>
+                  <p>L'élément <gi>lb</gi> indique un nouveau début de ligne, ce qui permet de conserver la justification du texte.</p>
+                  <p>L'élément <gi>l</gi> marque chaque nouvelle ligne du manuscrit. Il a lui aussi un attribut <att>n</att> 
+                     pour le compte des lignes. De plus, il a un attribut <att>facs</att> qui le lie à l'élément <gi>zone</gi> 
+                     qui a une valeur d'attribut <att>xml:id</att> correspondant à la valeur d'attribut de <att>facs</att>.
+                     Ainsi, dans le cas d'un facsimilé interactif, la transciption de chaque ligne correspondrait à chaque ligne de l'image.</p>
                </div3>
+               
                <div3>
-                  <head>Description du corps de l'encodage : le <gi>body</gi></head>
-                  <!-- décrire la structure du document : éléments... -->
-               </div3>
-               <div3>
-                  <head>Description des entités utilisées pour les caractères spéciaux : la DTD</head>
+                  <head>Règles de transcription de l'oeuvre</head>
+                  <p>Lors de la transciption on voulait rester le plus fidèle possible à la graphie du manuscrit. 
+                     On a donc préferé de ne pas distinguer les allographes u/v, e/j. 
+                     On n'a pas modernisé la ponctuation, ni l'emploi des majuscules. 
+                     Par contre les apostrophes ont été introduit pour simplifier la lecture. 
+                     Pour resoudre les abbréviations, on a crée les entités qui sont déclarées dans un document DTD séparé.
+                     </p>
+                  <p> Les entitées sont déclarées dans une balise <gi>choice</gi> qui comporte une version originale 
+                      de la graphie du texte (dans des balises <gi>abbr</gi> ou <gi>orig</gi>) et une version rétablie
+                      de la graphie du texte (dans des balises <gi>expan</gi> ou <gi>reg</gi>).
+                  </p>
                </div3>
             </div2>
          </div1>
-         
          
          
          <div1>

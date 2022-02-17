@@ -241,17 +241,7 @@
                 </msDesc>
             </sourceDesc>
         </fileDesc>
-        
-        <encodingDesc> 
-            <editorialDecl>
-                <normalization>
-                    <p> Lors de la transciption on voulait rester le plus fidèle possible à la graphie du manuscrit. 
-                        On a donc préferé de ne pas distinguer les allographes u/v, e/j. 
-                        On n'a pas modernisé la ponctuation, ni l'emploi des majuscules. 
-                        Par contre les apostrophes ont été introduit pour simplifier la lecture.</p>
-                </normalization>
-            </editorialDecl> 
-        </encodingDesc>
+ 
         
         <profileDesc>
             <particDesc>
@@ -770,6 +760,7 @@
                 <pb facs="https://gallica.bnf.fr/ark:/12148/btv1b6000418r/f221.highres" n="105r"/>
                 <cb n="4"/>
                 <lg n="4">
+                    
                     <lb/><l n="175" facs="#l175">fist tel duel que riens </l>
                     <lb/><l n="176" facs="#l176">ne la puet reconforter </l>
                     <lb/><l n="177" facs="#l177">si la la <persName ref="#DamedeMalehault">dame de maleh&au;t</persName> </l>
