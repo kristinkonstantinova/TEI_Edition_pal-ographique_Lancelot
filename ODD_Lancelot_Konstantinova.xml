@@ -170,6 +170,10 @@
                            <note>royaume du roi Arthur, correspond au sud-est de l'Angleterre</note>
                         </place>
                      </egXML>
+                     <p>Le problème qu'on a rencontré ici concerne les sauts de ligne pour les noms consistant des plusieurs mots: quand l'un des mots
+                        est renvoyé à une nouvelle ligne, les balises <gi>personName</gi> ne peuvent pas englober toute la tournure. Sans trouver  
+                        une meilleure solution, on a du laisser la construction balisée sur la même ligne. 
+                         </p>
                   </div4> 
                </div3>
                
@@ -217,7 +221,7 @@
                      </p>
                   <p> Les entitées sont déclarées dans une balise <gi>choice</gi> qui comporte une version originale 
                       de la graphie du texte (dans des balises <gi>abbr</gi> ou <gi>orig</gi>) et une version rétablie
-                      de la graphie du texte (dans des balises <gi>expan</gi> ou <gi>reg</gi>).
+                      de la graphie du texte (dans des balises <gi>expan</gi> ou <gi>reg</gi>).             
                   </p>
                </div3>
             </div2>
